@@ -19,6 +19,15 @@ class MyLinkedList<T> {
         return current?.value
     }
 
+    fun set(index: Int, element: T) {
+        if (index < 0 || index >= size) return
+        var current = head
+        repeat(index) {
+            current = current?.next
+        }
+        current?.value = element
+    }
+
     fun add(element: T) {
         if (head == null) {
             head = Node(element)
@@ -47,4 +56,4 @@ class MyLinkedList<T> {
     }
 }
 
-private class Node<T>(val value: T, var next: Node<T>? = null)
+private class Node<T>(var value: T, var next: Node<T>? = null)

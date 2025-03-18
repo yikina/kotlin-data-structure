@@ -94,4 +94,49 @@ class MyLinkedListTest {
         assertEquals(2, linkedList.get(1))
         assertEquals(3, linkedList.get(2))
     }
+
+    @Test
+    fun `Given create a MyLinkedList When set head element Then return a List with the new head`() {
+        // Given
+        val linkedList = MyLinkedList<Int>().apply {
+            add(1)
+            add(2)
+        }
+        // When
+        linkedList.set(0, 9)
+        // Then
+        assertEquals(2, linkedList.size())
+        assertEquals(9, linkedList.get(0))
+        assertEquals(2, linkedList.get(1))
+    }
+
+    @Test
+    fun `Given create a MyLinkedList When set a element Then return a List with the new element`() {
+        // Given
+        val linkedList = MyLinkedList<Int>().apply {
+            add(1)
+            add(2)
+        }
+        // When
+        linkedList.set(1, 9)
+        // Then
+        assertEquals(2, linkedList.size())
+        assertEquals(1, linkedList.get(0))
+        assertEquals(9, linkedList.get(1))
+    }
+
+    @Test
+    fun `Given create a MyLinkedList When set the invalid index Then nothing happen`() {
+        // Given
+        val linkedList = MyLinkedList<Int>().apply {
+            add(1)
+            add(2)
+        }
+        // When
+        linkedList.set(9, 9)
+        // Then
+        assertEquals(2, linkedList.size())
+        assertEquals(1, linkedList.get(0))
+        assertEquals(2, linkedList.get(1))
+    }
 }
