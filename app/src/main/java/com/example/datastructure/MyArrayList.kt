@@ -13,8 +13,12 @@ class MyArrayList<T> {
         return elements[index] as T?
     }
 
+    fun set(index: Int, element: T) {
+        elements[index] = element
+    }
+
     fun add(element: T) {
-        if (size == elements.size){
+        if (size == elements.size) {
             val capacity = elements.size * 2
             elements = elements.copyOf(capacity)
         }

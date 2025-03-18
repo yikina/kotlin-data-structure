@@ -71,4 +71,17 @@ class MyArrayListTest {
         assertEquals(1, array.size())
         assertEquals(elementFirst, array.get(0))
     }
+
+    @Test
+    fun `Given a MyArrayList has one elements When set a element at index 1 Then update the MyArrayList`() {
+        // Given
+        val array = MyArrayList<String>()
+        val elementFirst = "A"
+        array.add(elementFirst)
+        // When
+        val expected = "B"
+        array.set(0, expected)
+        // Then
+        assertEquals(expected, array.get(0))
+    }
 }
