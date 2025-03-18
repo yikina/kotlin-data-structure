@@ -31,6 +31,11 @@ class MyLinkedList<T> {
         }
         size++
     }
+
+    fun removeAt(index: Int) {
+        head = head?.next
+        size--
+    }
 }
 
 private class Node<T>(val value: T, var next: Node<T>? = null)

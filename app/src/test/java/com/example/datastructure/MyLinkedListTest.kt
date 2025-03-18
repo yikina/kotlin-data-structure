@@ -45,4 +45,20 @@ class MyLinkedListTest {
         assertEquals(elementSecond, linkedList.get(1))
         assertEquals(elementThird, linkedList.get(2))
     }
+
+    @Test
+    fun `Given create a MyLinkedList When remove head Then return a List without head`() {
+        // Given
+        val linkedList = MyLinkedList<Int>().apply {
+            add(1)
+            add(2)
+            add(3)
+        }
+        // When
+        linkedList.removeAt(0)
+        // Then
+        assertEquals(2, linkedList.size())
+        assertEquals(2, linkedList.get(0))
+        assertEquals(3, linkedList.get(1))
+    }
 }
