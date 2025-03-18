@@ -15,4 +15,16 @@ class MyArrayListTest {
         assertEquals(0, array.size())
         assertNull(array.get(0))
     }
+
+    @Test
+    fun `Given create a MyArrayList When add one element Then return a List with one element`(){
+        // Given
+        val array = MyArrayList<String>()
+        val element = "A"
+        // When
+        array.add(element)
+        // Then
+        assertEquals(1, array.size())
+        assertEquals(element, array.get(0))
+    }
 }
