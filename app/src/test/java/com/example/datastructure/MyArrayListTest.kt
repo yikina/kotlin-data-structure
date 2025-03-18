@@ -84,4 +84,17 @@ class MyArrayListTest {
         // Then
         assertEquals(expected, array.get(0))
     }
+
+    @Test
+    fun `Given a MyArraylist When set a invalid index Then nothing happen`() {
+        // Given
+        val expected = "A"
+        val array = MyArrayList<String>().apply {
+            add(expected)
+        }
+        // When
+        array.set(-1, "B")
+        // Then
+        assertEquals(expected, array.get(0))
+    }
 }

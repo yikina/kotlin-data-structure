@@ -14,6 +14,7 @@ class MyArrayList<T> {
     }
 
     fun set(index: Int, element: T) {
+        if (index < 0 || index >= size) return
         elements[index] = element
     }
 
