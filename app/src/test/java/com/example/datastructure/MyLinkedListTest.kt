@@ -61,4 +61,20 @@ class MyLinkedListTest {
         assertEquals(2, linkedList.get(0))
         assertEquals(3, linkedList.get(1))
     }
+
+    @Test
+    fun `Given create a MyLinkedList When remove a element Then return a List without the element`() {
+        // Given
+        val linkedList = MyLinkedList<Int>().apply {
+            add(1)
+            add(2)
+            add(3)
+        }
+        // When
+        linkedList.removeAt(1)
+        // Then
+        assertEquals(2, linkedList.size())
+        assertEquals(1, linkedList.get(0))
+        assertEquals(3, linkedList.get(1))
+    }
 }

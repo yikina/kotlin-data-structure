@@ -33,7 +33,15 @@ class MyLinkedList<T> {
     }
 
     fun removeAt(index: Int) {
-        head = head?.next
+        if (index == 0) {
+            head = head?.next
+        } else {
+            var current = head
+            repeat(index - 1) {
+                current = current?.next
+            }
+            current?.next = current?.next?.next
+        }
         size--
     }
 }
