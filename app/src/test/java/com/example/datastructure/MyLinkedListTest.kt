@@ -26,4 +26,23 @@ class MyLinkedListTest {
         assertEquals(1, linkedList.size())
         assertEquals(element, linkedList.get(0))
     }
+
+    @Test
+    fun `Given create a MyLinkedList When add two elements Then return a List with two elements`() {
+        // Given
+        val elementFirst = 1
+        val elementSecond = 2
+        val elementThird = 3
+        // When
+        val linkedList = MyLinkedList<Int>().apply {
+            add(elementFirst)
+            add(elementSecond)
+            add(elementThird)
+        }
+        // Then
+        assertEquals(3, linkedList.size())
+        assertEquals(elementFirst, linkedList.get(0))
+        assertEquals(elementSecond, linkedList.get(1))
+        assertEquals(elementThird, linkedList.get(2))
+    }
 }

@@ -22,6 +22,12 @@ class MyLinkedList<T> {
     fun add(element: T) {
         if (head == null) {
             head = Node(element)
+        } else {
+            var current = head
+            while (current?.next != null) {
+                current = current.next
+            }
+            current?.next = Node(element)
         }
         size++
     }
