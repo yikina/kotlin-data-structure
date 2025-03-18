@@ -77,4 +77,21 @@ class MyLinkedListTest {
         assertEquals(1, linkedList.get(0))
         assertEquals(3, linkedList.get(1))
     }
+
+    @Test
+    fun `Given create a MyLinkedList When remove the invalid index Then nothing happen`() {
+        // Given
+        val linkedList = MyLinkedList<Int>().apply {
+            add(1)
+            add(2)
+            add(3)
+        }
+        // When
+        linkedList.removeAt(9)
+        // Then
+        assertEquals(3, linkedList.size())
+        assertEquals(1, linkedList.get(0))
+        assertEquals(2, linkedList.get(1))
+        assertEquals(3, linkedList.get(2))
+    }
 }

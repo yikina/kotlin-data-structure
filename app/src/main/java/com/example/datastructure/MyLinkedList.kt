@@ -33,6 +33,7 @@ class MyLinkedList<T> {
     }
 
     fun removeAt(index: Int) {
+        if (index < 0 || index >= size) return
         if (index == 0) {
             head = head?.next
         } else {
