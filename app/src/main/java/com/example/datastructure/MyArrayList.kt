@@ -21,4 +21,14 @@ class MyArrayList<T> {
         elements[size] = element
         size++
     }
+
+    fun removeAt(index: Int) {
+        if (index < 0 || index >= size) {
+            throw IndexOutOfBoundsException()
+        }
+        for (i in index until size - 1) {
+            elements[i] = elements[i + 1]
+        }
+        size--
+    }
 }
