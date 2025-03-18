@@ -27,4 +27,19 @@ class MyArrayListTest {
         assertEquals(1, array.size())
         assertEquals(element, array.get(0))
     }
+
+    @Test
+    fun `Given create a MyArrayList When add two elements Then return a List with two elements`(){
+        // Given
+        val array = MyArrayList<String>()
+        val elementFirst = "A"
+        val elementSecond = "B"
+        // When
+        array.add(elementFirst)
+        array.add(elementSecond)
+        // Then
+        assertEquals(2, array.size())
+        assertEquals(elementFirst, array.get(0))
+        assertEquals(elementSecond, array.get(1))
+    }
 }

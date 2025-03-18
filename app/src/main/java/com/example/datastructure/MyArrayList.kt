@@ -14,6 +14,10 @@ class MyArrayList<T> {
     }
 
     fun add(element: T) {
+        if (size == elements.size){
+            val capacity = elements.size * 2
+            elements = elements.copyOf(capacity)
+        }
         elements[size] = element
         size++
     }
