@@ -27,6 +27,23 @@ class MyHashMap<K, V> {
         table[index] = Entry(key, value, table[index])
     }
 
+    fun remove(key: K) {
+        val index = key.hashCode() % table.size
+        var current = table[index]
+        var prev: Entry<K, V>? = null
+        while (current != null) {
+            if (current.key == key) {
+                if (prev == null) {
+                    table[index] = current.next
+                } else {
+                    prev.next = current.next
+                }
+            }
+            prev = current
+            current = current.next
+        }
+    }
+
     private data class Entry<K, V>(
         val key: K,
         var value: V,

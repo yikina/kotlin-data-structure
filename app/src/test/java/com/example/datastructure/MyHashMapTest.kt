@@ -46,4 +46,15 @@ class MyHashMapTest {
         // Then
         assertEquals(2, hashMap.get("A"))
     }
+
+    @Test
+    fun `Given When remove a element from MyHashMap Then return null`() {
+        // Given
+        val hashMap = MyHashMap<String, Int>()
+        hashMap.put("A", 1)
+        // When
+        hashMap.remove("A")
+        // Then
+        assertNull(hashMap.get("A"))
+    }
 }
