@@ -2,13 +2,34 @@ package com.example.datastructure
 
 @Suppress("UNCHECKED_CAST")
 class MyHashMap<K, V> {
-    private var table: Array<Any?> = arrayOfNulls(1)
+    private var table: Array<Entry<K, V>?> = arrayOfNulls(2)
 
     fun get(key: K): V? {
-        return table[0] as V?
+        val index = key.hashCode() % table.size
+        var current = table[index]
+        while (current != null) {
+            if (current.key == key) return current.value
+            current = current.next
+        }
+        return null
     }
 
     fun put(key: K, value: V) {
-        table[0] = value
+        val index = key.hashCode() % table.size
+        var current = table[index]
+        while (current != null) {
+            if (current.key == key) {
+                current.value = value
+                return
+            }
+            current = current.next
+        }
+        table[index] = Entry(key, value, table[index])
     }
+
+    private data class Entry<K, V>(
+        val key: K,
+        var value: V,
+        var next: Entry<K, V>?
+    )
 }
