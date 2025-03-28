@@ -1,24 +1,24 @@
 package com.example.datastructure
 
 @Suppress("UNCHECKED_CAST")
-class MyArrayList<T> {
+class MyArrayList<T> : MyList<T> {
     private var elements: Array<Any?> = arrayOfNulls(1)
     private var size = 0
 
-    fun size(): Int {
+    override fun size(): Int {
         return size
     }
 
-    fun get(index: Int): T? {
+    override fun get(index: Int): T? {
         return elements[index] as T?
     }
 
-    fun set(index: Int, element: T) {
+    override fun set(index: Int, element: T) {
         if (index < 0 || index >= size) return
         elements[index] = element
     }
 
-    fun add(element: T) {
+    override fun add(element: T) {
         if (size == elements.size) {
             val capacity = elements.size * 2
             elements = elements.copyOf(capacity)
@@ -27,7 +27,7 @@ class MyArrayList<T> {
         size++
     }
 
-    fun removeAt(index: Int) {
+    override fun removeAt(index: Int) {
         if (index < 0 || index >= size) {
             throw IndexOutOfBoundsException()
         }

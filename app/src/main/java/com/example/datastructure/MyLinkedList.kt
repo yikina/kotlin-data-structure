@@ -1,14 +1,14 @@
 package com.example.datastructure
 
-class MyLinkedList<T> {
+class MyLinkedList<T> : MyList<T> {
     private var head: Node<T>? = null
     private var size = 0
 
-    fun size(): Int {
+    override fun size(): Int {
         return size
     }
 
-    fun get(index: Int): T? {
+    override fun get(index: Int): T? {
         if (index < 0 || index >= size) {
             return null
         }
@@ -19,7 +19,7 @@ class MyLinkedList<T> {
         return current?.value
     }
 
-    fun set(index: Int, element: T) {
+    override fun set(index: Int, element: T) {
         if (index < 0 || index >= size) return
         var current = head
         repeat(index) {
@@ -28,7 +28,7 @@ class MyLinkedList<T> {
         current?.value = element
     }
 
-    fun add(element: T) {
+    override fun add(element: T) {
         if (head == null) {
             head = Node(element)
         } else {
@@ -41,7 +41,7 @@ class MyLinkedList<T> {
         size++
     }
 
-    fun removeAt(index: Int) {
+    override fun removeAt(index: Int) {
         if (index < 0 || index >= size) return
         if (index == 0) {
             head = head?.next
